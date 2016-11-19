@@ -1,3 +1,8 @@
-<h1>
-  {{title}}
-</h1>
+<nav class="navbar-fluid navbar-default navbar-fixed-top">
+  <div class="container">
+    <a routerLink="/" routerLinkActive="active" class="navbar-brand"> Lab 3 </a>
+    <a routerLink="/register" routerLinkActive="active" class="navbar-right navbar-text">Register</a>
+    <a routerLink="/login" routerLinkActive="active" class="navbar-right navbar-text">Login</a>
+  </div>
+</nav>
+<router-outlet></router-outlet>
