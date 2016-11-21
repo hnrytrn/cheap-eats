@@ -11,17 +11,20 @@ import { LoginComponent } from './login/login.component';
 
 
 import { Auth } from  './auth.service';
+import { FoodPostComponent } from './food-post/food-post.component';
 
 const appRoutes: Routes = [
   { path: 'register', component: RegisterComponent},
-  { path: 'login', component: LoginComponent}
+  { path: 'login', component: LoginComponent},
+  { path: '', component: FoodPostComponent}
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    FoodPostComponent
   ],
   imports: [
     BrowserModule,
