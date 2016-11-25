@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Post } from '../post';
 
 @Component({
   selector: 'app-add-post',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddPostComponent implements OnInit {
 
-  constructor() { }
-
   ngOnInit() {
   }
+  
+  model = new Post("Food", 25, "2016/11/30", "image");
 
+  submitted = false
+
+  onSubmit() { this.submitted = false};
+  
+  postFood() {
+    this.model = new Post("", "", "", "");
+  }
 }
