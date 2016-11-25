@@ -11,13 +11,13 @@ export class AddPostComponent implements OnInit {
   ngOnInit() {
   }
   
-  model = new Post("Food", 25, "2016/11/30", "image");
+  model = new Post("", "", "", "", "");
 
   submitted = false
 
   onSubmit() { this.submitted = false};
   
   postFood() {
-    this.model = new Post("", "", "", "");
+    this.model = new Post("", "", "", "", "");
   }
 }

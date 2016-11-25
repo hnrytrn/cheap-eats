@@ -5,6 +5,7 @@ export class Post {
         public name,
         public price,
         public expiryDate,
+        public description,
         public image
   ) { }
 }
