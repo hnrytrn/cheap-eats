@@ -3,9 +3,32 @@ import { tokenNotExpired } from 'angular2-jwt';
 
 // Avoid name not found warnings
 let Auth0Lock = require('auth0-lock').default;
+
+// Lock customization
 var options = {
-  allowedConnections: ['Username-Password-Authentication']
+  allowedConnections: ['Username-Password-Authentication'],
+  
+  // Sign up fields
+  additionalSignUpFields: [{
+    name: "retailerName",
+    placeholder: "Enter the name of your store",
+  },
+  {
+    name: "address",
+    placeholder: "Enter the address of your store"
+  },
+  {
+    name: "postalCode",
+    placeholder: "Enter the postal code of your store",
+    validator: function(postalCode) {
+      return {
+        valid: postalCode.length == 6,
+        hint: "Postal code must be in the form \"A1A1A1\""
+      };
+    }
+  }]
 };
+
 @Injectable()
 export class Auth {
   // Configure Auth0
