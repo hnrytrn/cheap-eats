@@ -1,9 +1,10 @@
 <nav class="navbar-fluid navbar-default navbar-fixed-top">
   <div class="container">
     <a routerLink="/" routerLinkActive="active" class="navbar-brand"> Lab 3 </a>
-    <a routerLink="/register" routerLinkActive="active" class="navbar-right navbar-text" *ngIf="!auth.authenticated()">Register</a>
-    <a routerLink="/login" routerLinkActive="active" class="navbar-right navbar-text" *ngIf="!auth.authenticated()">Log in</a>
-    <a href="#" class="navbar-right navbar-text" (click)="auth.logout()" *ngIf="auth.authenticated()">Log out</a>
+    <!--<a routerLink="/register" routerLinkActive="active" class="navbar-right navbar-text">Register</a>
+    <a routerLink="/login" routerLinkActive="active" class="navbar-right navbar-text">Login</a>-->
+    <a href="#" (click)="auth.login()" *ngIf="!auth.authenticated()" class="navbar-right navbar-text">Log in</a>
+    <a href="#" (click)="auth.logout()" *ngIf="auth.authenticated()" class="navbar-right navbar-text">Log out</a>
   </div>
 </nav>
 <router-outlet></router-outlet>
