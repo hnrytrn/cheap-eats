@@ -11,8 +11,8 @@ router.route('/foodPost')
         newPost.foodName = req.body.foodName;
         newPost.expiryDate = req.body.expiryDate;
         newPost.description = req.body.description;
-        // newPost.image.data = fs.readFileSync(req.files.userPhoto.path);
-        // newItem.image.contentType = 'image/png';
+        newPost.image = req.body.image;
+
         newPost.save(function(err, post) {
 			if (err){
 				return res.send(500, err);

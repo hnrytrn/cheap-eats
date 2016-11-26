@@ -4,10 +4,7 @@ var postSchema = new mongoose.Schema({
     foodName: String,
     expiryDate: String,
     description: String,
-    // image : {
-    //     data: Buffer,
-    //     contentType: String
-    // }
+    image : String
 });
 
 mongoose.model('Post', postSchema);
