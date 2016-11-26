@@ -1,25 +1,33 @@
 var express = require('express');
 var router = express.Router();
-
-
-router.get('/', function(req, res, next) {
-    res.send('Got a GET request for the api');
-});
-
-
-router.put('/', function(req, res, next) {
-    res.send('Got a PUT request for the api');
-});
-
-
-router.post('/', function(req, res, next) {
-    res.send('Got a POST request for the api');
-});
-
-
-router.delete('/', function(req, res, next) {
-    res.send('Got a DELETE request for the api');
-});
-
+var mongoose = require('mongoose');
+var Post = mongoose.model('Post');
+// Food posts route
+router.route('/foodPost')
+    // Create food posts
+    .post(function(req,res) {
+        // Save photo
+        var newPost = new Post();
+        newPost.foodName = req.body.foodName;
+        newPost.expiryDate = req.body.expiryDate;
+        newPost.description = req.body.description;
+        // newPost.image.data = fs.readFileSync(req.files.userPhoto.path);
+        // newItem.image.contentType = 'image/png';
+        newPost.save(function(err, post) {
+			if (err){
+				return res.send(500, err);
+			}
+			return res.json(post);
+        });
+    })
+    //Get all food posts
+    .get(function(req, res) {
+        Post.find(function(err, posts) {
+            if (err) {
+                return res.send(500, err);
+            }
+            return res.send(posts);
+        })
+    });
 
 module.exports = router;
