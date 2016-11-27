@@ -1,25 +1,32 @@
 import { Component, OnInit } from '@angular/core';
 import { Post } from '../post';
 import { FoodPostService } from '../food-post.service';
+import { Auth } from '../auth.service';
 import { Observable } from 'rxjs/Rx';
 
 @Component({
   selector: 'app-add-post',
   templateUrl: './add-post.component.html',
   styleUrls: ['./add-post.component.css'],
-  providers: [FoodPostService]
+  providers: [FoodPostService, Auth]
 })
 export class AddPostComponent implements OnInit {
+  profile: any;
 
   constructor(
-    private foodPostService: FoodPostService
-  ) {}
+    private foodPostService: FoodPostService,
+    private auth: Auth
+  ) {
+    this.profile = JSON.parse(localStorage.getItem('profile'));
+    console.log(this.profile);
+  }
 
   ngOnInit() {
   }
   
   private model = new Post("", "", "", "", "");
   private image; 
+  p
 
   submitted = false;
   
@@ -43,10 +50,12 @@ export class AddPostComponent implements OnInit {
     )
   }
 
+  // Listens to when an file gets uploaded
   changeListener($event): void {
     this.readFile($event.target);
   }
 
+  // Reads the image file and gets the base64 encoding
   readFile(inputeValue: any): void {
     var file:File = inputeValue.files[0];
     var reader:FileReader = new FileReader();

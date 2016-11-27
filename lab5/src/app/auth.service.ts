@@ -37,7 +37,13 @@ export class Auth {
   constructor() {
     // Add callback for lock `authenticated` event
     this.lock.on("authenticated", (authResult) => {
-      localStorage.setItem('id_token', authResult.idToken);
+      this.lock.getProfile(authResult.idToken, function(error:any, profile:any){
+        if (error) {
+          throw new Error(error);
+        }
+        localStorage.setItem('id_token', authResult.idToken);
+        localStorage.setItem('profile', JSON.stringify(profile));
+      })
     });
   }
 
