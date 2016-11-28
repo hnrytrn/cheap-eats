@@ -1,10 +1,13 @@
 var mongoose = require('mongoose');
 
-var postSchema = new mongoose.Schema({
+var foodPostSchema = new mongoose.Schema({
     foodName: String,
     expiryDate: String,
     description: String,
-    image : String
+    image: String,
+    retailer: String,
+    postalCode: String,
+    address: String
 });
 
-mongoose.model('Post', postSchema);
+mongoose.model('FoodPost', foodPostSchema);

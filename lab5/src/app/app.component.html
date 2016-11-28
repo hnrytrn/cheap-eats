@@ -2,8 +2,8 @@
   <div class="container">
     <a routerLink="/" routerLinkActive="active" class="navbar-brand"> Lab 3 </a>
     <a href="#" (click)="auth.login()" *ngIf="!auth.authenticated()" class="navbar-right navbar-text">Log in</a>
-    <a href="#" (click)="auth.logout()" *ngIf="auth.authenticated()" class="navbar-right navbar-text">Log out</a>
-    <a routerLink="/addPost" routerLinkActive="active" *ngIf="auth.authenticated()" class="navbar-right navbar-text">Add Food Post</a>
+    <a href="#" (click)="auth.logout()" *ngIf="auth.authenticated() && auth.userProfile" class="navbar-right navbar-text">Log out</a>
+    <a routerLink="/addPost" routerLinkActive="active" *ngIf="auth.authenticated() && auth.userProfile" class="navbar-right navbar-text">Add Food Post</a>
   </div>
 </nav>
 <router-outlet></router-outlet>

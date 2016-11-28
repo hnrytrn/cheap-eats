@@ -34,18 +34,29 @@ export class Auth {
   // Configure Auth0
   lock = new Auth0Lock('lZPYvZOMyrvgHwO5M7fk08MnOF5vYsVh', 'henrytran.auth0.com', options);
 
+  userProfile: any;
+
   constructor() {
-    // Add callback for lock `authenticated` event
+    // Set userProfile attribute of already saved profile
+    this.userProfile = JSON.parse(localStorage.getItem('profile'));
+
+    // Add callback for the Lock `authenticated` event
     this.lock.on("authenticated", (authResult) => {
-      this.lock.getProfile(authResult.idToken, function(error:any, profile:any){
+      localStorage.setItem('id_token', authResult.idToken);
+
+      // Fetch profile information
+      this.lock.getProfile(authResult.idToken, (error, profile) => {
         if (error) {
-          throw new Error(error);
+          // Handle error
+          alert(error);
+          return;
         }
-        localStorage.setItem('id_token', authResult.idToken);
+
         localStorage.setItem('profile', JSON.stringify(profile));
-      })
+        this.userProfile = profile;
+      });
     });
-  }
+  };
 
   public login() {
     // Call the show method to display the widget.
@@ -59,7 +70,9 @@ export class Auth {
   };
 
   public logout() {
-    // Remove token from localStorage
+    // Remove token and profile from localStorage
     localStorage.removeItem('id_token');
+    localStorage.removeItem('profile');
+    this.userProfile = undefined;
   };
 }

@@ -11,37 +11,33 @@ import { Observable } from 'rxjs/Rx';
   providers: [FoodPostService, Auth]
 })
 export class AddPostComponent implements OnInit {
-  profile: any;
-
   constructor(
     private foodPostService: FoodPostService,
     private auth: Auth
-  ) {
-    this.profile = JSON.parse(localStorage.getItem('profile'));
-    console.log(this.profile);
-  }
+  ) {}
 
   ngOnInit() {
   }
-  
-  private model = new Post("", "", "", "", "");
+
+  private model = new Post("", "", "", "", "","","","");
   private image; 
-  p
+  private retailer = this.auth.userProfile.user_metadata.retailerName;
+  private postalCode = this.auth.userProfile.user_metadata.postalCode;
+  private address = this.auth.userProfile.user_metadata.address;
 
   submitted = false;
   
   postFood() {
     this.submitted = true
     let postOperation: Observable<Post[]>;
-
     // Create a new food post
     postOperation = this.foodPostService.addFoodPost(
-      new Post(this.model.name, this.model.price, this.model.expiryDate, this.model.description, this.image));
+      new Post(this.model.name, this.model.price, this.model.expiryDate, this.model.description, this.image, this.retailer, this.postalCode, this.address));
 
     // Subscribe to Observable
     postOperation.subscribe( 
       posts => {
-        this.model = new Post("", "", "", "", "");    
+        this.model = new Post("", "", "", "", "","","","");    
         this.image = null;
       },
       err => {

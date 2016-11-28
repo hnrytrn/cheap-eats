@@ -6,6 +6,9 @@ export class Post {
         public price,
         public expiryDate,
         public description,
-        public image
+        public image,
+        public retailer,
+        public postalCode,
+        public address
   ) { }
 }
