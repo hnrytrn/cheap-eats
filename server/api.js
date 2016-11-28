@@ -25,12 +25,36 @@ router.route('/foodPost')
     })
     //Get all food posts
     .get(function(req, res) {
-        foodPost.find(function(err, posts) {
+        foodPost.find(function(err, foodPost) {
             if (err) {
                 return res.send(500, err);
             }
-            return res.send(posts);
+            return res.send(foodPost);
         })
     });
+
+//Food specific posts route
+router.route('/foodPost/:id') 
+    // Get specific food post
+    	//gets specified post
+	.get(function(req, res){
+		foodPost.findById(req.params.id, function(err, post){
+			if(err) {
+				res.send(err);
+            }
+			res.json(post);
+		});
+	}) 
+	//deletes the post
+	.delete(function(req, res) {
+		foodPost.remove({
+			_id: req.params.id
+		}, function(err) {
+			if (err) {
+				res.send(err);
+            }
+			res.json("deleted :(");
+		});
+	});
 
 module.exports = router;
