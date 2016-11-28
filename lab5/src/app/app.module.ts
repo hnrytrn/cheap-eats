@@ -5,22 +5,25 @@ import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 import { AUTH_PROVIDERS } from 'angular2-jwt';
 
+import { Auth } from  './auth.service';
+
 import { AppComponent } from './app.component';
 import { FoodPostComponent } from './food-post/food-post.component';
 import { AddPostComponent } from './add-post/add-post.component';
-
-import { Auth } from  './auth.service';
+import { FoodDetailComponent } from './food-detail/food-detail.component';
 
 const appRoutes: Routes = [
   { path: '', component: FoodPostComponent },
-  { path: 'addPost', component: AddPostComponent }
+  { path: 'addPost', component: AddPostComponent },
+  { path: 'foodDetail/:id', component:FoodDetailComponent }
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
     FoodPostComponent,
-    AddPostComponent
+    AddPostComponent,
+    FoodDetailComponent
   ],
   imports: [
     BrowserModule,

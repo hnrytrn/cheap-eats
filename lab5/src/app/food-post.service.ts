@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { Post } from './post';
+import { FetchedPost } from './fetchedPost';
 import { Observable } from 'rxjs/Rx';
 
 import 'rxjs/add/operator/map' ;
@@ -13,7 +14,7 @@ export class FoodPostService {
   private foodPostsUrl = 'http://localhost:8080/api/foodPost'
 
   // Get all food posts
-  getFoodPosts(): Observable<Post[]> {
+  getFoodPosts(): Observable<FetchedPost[]> {
     return this.http.get(this.foodPostsUrl)
       .map((res:Response) => res.json())
       .catch((error:any) => Observable.throw(error.json().error || 'Server error'));

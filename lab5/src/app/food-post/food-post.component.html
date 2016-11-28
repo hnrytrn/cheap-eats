@@ -13,51 +13,10 @@
   </div>
 </header>
 
-<div class="col-md-offset-1 col-md-9">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-3 food-post">
-        Food Post
-      </div>
-      <div class="col-md-3 food-post">
-        Food Post
-      </div>
-      <div class="col-md-3 food-post">
-        Food Post
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-3 food-post">
-        Food Post
-      </div>
-      <div class="col-md-3 food-post">
-        Food Post
-      </div>
-      <div class="col-md-3 food-post">
-        Food Post
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-3 food-post">
-        Food Post
-      </div>
-      <div class="col-md-3 food-post">
-        Food Post
-      </div>
-        <div class="col-md-3 food-post">
-        Food Post
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-3 food-post">
-        Food Post
-      </div>
-        <div class="col-md-3 food-post">
-        Food Post
-      </div>
-        <div class="col-md-3 food-post">
-        Food Post
-      </div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4" *ngFor="let post of posts" (click)="onSelect(post)"> 
+      <img class="food-post" [src]="post.image">
     </div>
   </div>
 </div>
