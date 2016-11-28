@@ -13,7 +13,7 @@
   </div>
 </header>
 
-<div class="container">
+<div class="container" *ngIf=posts>
   <div class="row">
     <div class="col-md-4" *ngFor="let post of posts" (click)="onSelect(post)"> 
       <img class="food-post" [src]="post.image">

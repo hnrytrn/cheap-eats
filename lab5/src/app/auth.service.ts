@@ -6,7 +6,7 @@ let Auth0Lock = require('auth0-lock').default;
 
 // Lock customization
 var options = {
-  allowedConnections: ['Username-Password-Authentication'],
+  allowedConnections: ['Username-Password-Authentication', 'google', 'twitter', 'facebook'],
   
   // Sign up fields
   additionalSignUpFields: [{

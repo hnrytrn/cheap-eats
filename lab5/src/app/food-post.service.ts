@@ -43,9 +43,16 @@ export class FoodPostService {
   }
 
   // Delete a food post
-    removeComment (id:string): Observable<Post[]> {
-      return this.http.delete(`${this.foodPostsUrl}/${id}`) 
-      .map((res:Response) => res.json()) 
-      .catch((error:any) => Observable.throw(error.json().error || 'Server error')); 
-    }   
+  removeComment (id:string): Observable<Post[]> {
+    return this.http.delete(`${this.foodPostsUrl}/${id}`) 
+    .map((res:Response) => res.json()) 
+    .catch((error:any) => Observable.throw(error.json().error || 'Server error')); 
+  }   
+
+  // Get specific food post
+  getFoodPost(id:string): Observable<FetchedPost> {
+    return this.http.get(`${this.foodPostsUrl}/${id}`)
+      .map((res:Response) => res.json())
+      .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+  }
 }
