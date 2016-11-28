@@ -12,9 +12,11 @@ router.route('/foodPost')
         newPost.expiryDate = req.body.expiryDate;
         newPost.description = req.body.description;
         newPost.image = req.body.image;
+        newPost.price = req.body.price;
         newPost.retailer = req.body.retailer;
         newPost.postalCode = req.body.postalCode;
         newPost.address = req.body.address;
+        
 
         newPost.save(function(err, post) {
 			if (err){

@@ -5,6 +5,7 @@ var foodPostSchema = new mongoose.Schema({
     expiryDate: String,
     description: String,
     image: String,
+    price: Number,
     retailer: String,
     postalCode: String,
     address: String

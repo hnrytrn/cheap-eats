@@ -1,14 +1,14 @@
 <div class="container">
   <div class="row">
     <div class="col-md-10 col-md-offset-1" *ngIf=post> 
-      <h1> {{post.name}} </h1>
       <div>
         <img class="food-image" [src]="post.image">
       </div>
+      <h1> {{post.name}} </h1>
       <h6> Price: {{post.price}} </h6>
       <h6> Description: {{post.description}} </h6>
       <h6> Expiry Date: {{post.expiryDate}} </h6>
-      <h6> Retailer: {{post.reatailer}} </h6>
+      <h6> Retailer: {{post.retailer}} </h6>
       <h6> Address: {{post.address}} </h6>
       <h6> Postal Code: {{post.postalCode}} </h6>
     </div>

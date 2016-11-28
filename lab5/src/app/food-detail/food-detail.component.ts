@@ -24,6 +24,7 @@ export class FoodDetailComponent implements OnInit {
 
   ngOnInit() {
     this.loadPost();
+    console.log(this.post);
   }
   
   loadPost() {
