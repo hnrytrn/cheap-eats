@@ -11,11 +11,13 @@ import { AppComponent } from './app.component';
 import { FoodPostComponent } from './food-post/food-post.component';
 import { AddPostComponent } from './add-post/add-post.component';
 import { FoodDetailComponent } from './food-detail/food-detail.component';
+import { EditPostComponent } from './edit-post/edit-post.component';
 
 const appRoutes: Routes = [
   { path: '', component: FoodPostComponent },
   { path: 'addPost', component: AddPostComponent },
-  { path: 'foodDetail/:id', component:FoodDetailComponent }
+  { path: 'foodDetail/:id', component:FoodDetailComponent },
+  { path: 'editPost/:id', component:EditPostComponent }
 ];
 
 @NgModule({
@@ -23,7 +25,8 @@ const appRoutes: Routes = [
     AppComponent,
     FoodPostComponent,
     AddPostComponent,
-    FoodDetailComponent
+    FoodDetailComponent,
+    EditPostComponent
   ],
   imports: [
     BrowserModule,

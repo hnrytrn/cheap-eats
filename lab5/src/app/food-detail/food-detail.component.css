@@ -1,5 +1,9 @@
-.food-image {
+.detail-image {
     display: block;
     height: 500px;
     width: 500px;
 }
+.detail-description {
+    margin-top: 70px;
+    display: block;
+ }
