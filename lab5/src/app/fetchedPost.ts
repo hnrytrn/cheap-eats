@@ -3,7 +3,7 @@ export class FetchedPost {
     
     constructor(
         public _id,
-        public name,
+        public foodName,
         public price,
         public expiryDate,
         public description,

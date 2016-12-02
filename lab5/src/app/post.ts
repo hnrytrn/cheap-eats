@@ -2,7 +2,7 @@
 export class Post {
     
     constructor(
-        public name,
+        public foodName,
         public price,
         public expiryDate,
         public description,

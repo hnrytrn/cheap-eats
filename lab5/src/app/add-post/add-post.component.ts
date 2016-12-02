@@ -32,7 +32,7 @@ export class AddPostComponent implements OnInit {
     let postOperation: Observable<Post[]>;
     // Create a new food post
     postOperation = this.foodPostService.addFoodPost(
-      new Post(this.model.name, this.model.price, this.model.expiryDate, this.model.description, this.image, this.retailer, this.postalCode, this.address));
+      new Post(this.model.foodName, this.model.price, this.model.expiryDate, this.model.description, this.image, this.retailer, this.postalCode, this.address));
 
     // Subscribe to Observable
     postOperation.subscribe( 
