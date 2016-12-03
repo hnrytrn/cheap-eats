@@ -39,7 +39,10 @@ export class EditPostComponent implements OnInit {
   loadPost() {
     this.foodPostService.getFoodPost(this.foodID)
       .subscribe(
-        post => this.post = post,  
+        post => {
+          this.post = post;
+          this.image = post.image;
+        },  
         err => {
           console.log(err);
         }
@@ -49,9 +52,6 @@ export class EditPostComponent implements OnInit {
   // User submits the post to be updated
   submitPost() {
     let putOperation: Observable<Post[]>;
-    if (this.image != null) {
-      this.post.image = this.image;
-    }
     // Update the food post
     putOperation = this.foodPostService.updateFoodPost(
       new FetchedPost(this.post._id, this.post.foodName, this.post.price, this.post.expiryDate, this.post.description, this.image, this.retailer, this.postalCode, this.address)
