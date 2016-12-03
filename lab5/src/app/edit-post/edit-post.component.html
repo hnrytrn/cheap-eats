@@ -4,27 +4,27 @@
 		<div class="form-group">
 			<label for="name">Name</label>
 			<input type="text" class="form-control" placeholder="Enter the name of the food" id="name" 
-        required [(ngModel)]="post.foodName" name="name" #name="ngModel">
+         [(ngModel)]="post.foodName" name="name" #name="ngModel">
 		</div>
 		<div class="form-group">
 			<label for="price">Price</label>
 			<input type="number" class="form-control" placeholder="Enter the price of the food" id="price" 
-        required [(ngModel)]="post.price" name="price" #price="ngModel">
+         [(ngModel)]="post.price" name="price" #price="ngModel">
 		</div>
     <div class="form-group">
       <label for="expiryDate">Expiry Date</label>
       <input type="date" class="form-control" id="expiryDate" 
-        required [(ngModel)]="post.expiryDate" name="expiryDate" #expiryDate="ngModel">
+         [(ngModel)]="post.expiryDate" name="expiryDate" #expiryDate="ngModel">
     </div>
     <div class="form-group">
       <label for="description">Description</label>
       <input type="text" class="form-control" id="description" placeholder="Enter the description of the food"
-        required [(ngModel)]="post.description" name="description" #description="ngModel">
+         [(ngModel)]="post.description" name="description" #description="ngModel">
     </div>
     <div class="form-group">
       <label for="image">Image</label>
       <input type="file" accept="image/*" class="form-control" id="image" 
-        required (change)="changeListener($event)" name="image" #image>
+         (change)="changeListener($event)" name="image" #image>
     </div>
 		<button type="submit" class="btn btn-default" (click)="postFood(); postForm.reset()">Submit</button>
 	</form>
