@@ -1,9 +1,8 @@
 .detail-image {
-    display: block;
-    height: 500px;
-    width: 500px;
+    height: 400px;
+    width: 400px;
 }
 .detail-description {
-    margin-top: 70px;
+    margin-top: 50px;
     display: block;
  }

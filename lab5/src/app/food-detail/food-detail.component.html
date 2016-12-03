@@ -3,8 +3,8 @@
     <div class="col-md-10 col-md-offset-1" *ngIf=post> 
       <i (click)="edit()" class="fa fa-3x fa-pencil pull-right" aria-hidden="true"></i>
       <i (click)="delete()" class="fa fa-3x fa-trash pull-right" aria-hidden="true"></i>
-      <div class="detail-image">
-        <img [src]="post.image">
+      <div>
+        <img class="detail-image" [src]="post.image">
       </div>
       <div class="detail-description">
         <h1> {{post.foodName}} </h1>
