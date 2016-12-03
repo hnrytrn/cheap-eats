@@ -37,13 +37,13 @@ export class FoodPostService {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers});
 
-    return this.http.put(`${this.foodPostsUrl}/${body['id']}`, body, options)
+    return this.http.put(`${this.foodPostsUrl}/${body['_id']}`, body, options)
       .map((res:Response) => res.json())
       .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
   }
 
   // Delete a food post
-  removeComment (id:string): Observable<Post[]> {
+  removeFoodPost (id:string): Observable<Post[]> {
     return this.http.delete(`${this.foodPostsUrl}/${id}`) 
     .map((res:Response) => res.json()) 
     .catch((error:any) => Observable.throw(error.json().error || 'Server error')); 

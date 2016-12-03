@@ -28,6 +28,7 @@ export class FoodDetailComponent implements OnInit {
     this.loadPost();
   }
   
+  // Load food post from foodID
   loadPost() {
     this.foodPostService.getFoodPost(this.foodID)
       .subscribe(
@@ -38,11 +39,18 @@ export class FoodDetailComponent implements OnInit {
       )
   }
 
+  // User chooses to edit food post
   edit() {
     this.router.navigate(['editPost', this.foodID]);
   }
-
+  
+  // User deletes food post
   delete() {
-    
+    this.foodPostService.removeFoodPost(this.foodID)
+      .subscribe(
+        err => {
+          console.log(err);
+        }
+      )
   }
 }
