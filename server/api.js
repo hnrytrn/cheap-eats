@@ -38,7 +38,6 @@ router.route('/foodPost')
 //Food specific posts route
 router.route('/foodPost/:id') 
     // Get specific food post
-    	//gets specified post
 	.get(function(req, res){
 		foodPost.findById(req.params.id, function(err, post){
 			if(err) {
@@ -47,7 +46,7 @@ router.route('/foodPost/:id')
 			res.json(post);
 		});
 	}) 
-	//deletes the post
+	// Delete a food post
 	.delete(function(req, res) {
 		foodPost.remove({
 			_id: req.params.id
@@ -57,6 +56,29 @@ router.route('/foodPost/:id')
             }
 			res.json("deleted :(");
 		});
-	});
+	})
+    // Updates a food post
+    .put(function(req, res) {
+        foodPost.findById(req.params.id, function(err, post) {
+            if (err) {
+                res.send(err);
+            }
+            post.foodName = req.body.foodName;
+            post.expiryDate = req.body.expiryDate;
+            post.description = req.body.description;
+            post.image = req.body.image;
+            post.price = req.body.price;
+            post.retailer = req.body.retailer;
+            post.postalCode = req.body.postalCode;
+            post.address = req.body.address;
+
+            post.save(function(err, post) {
+                if (err) {
+                    res.send(err);
+                }
+                res.json(post);
+            });
+        });
+    });
 
 module.exports = router;
