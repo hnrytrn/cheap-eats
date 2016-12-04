@@ -64,4 +64,9 @@ export class FoodDetailComponent implements OnInit {
     }
     return false;
   }
+
+  // Favourite retailer clicked
+  favourite() {
+    // add the retailers email to the list of the users favourite retailers
+  }
 }

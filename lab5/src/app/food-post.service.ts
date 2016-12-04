@@ -12,6 +12,7 @@ export class FoodPostService {
 
   constructor(private http: Http) { }
   private foodPostsUrl = 'http://localhost:8080/api/foodPost'
+  private retailerFoodPostsUrl = 'http://localhost:8080/api/retailerFoodPost'
 
   // Get all food posts
   getFoodPosts(): Observable<FetchedPost[]> {
@@ -52,6 +53,13 @@ export class FoodPostService {
   // Get specific food post
   getFoodPost(id:string): Observable<FetchedPost> {
     return this.http.get(`${this.foodPostsUrl}/${id}`)
+      .map((res:Response) => res.json())
+      .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+  }
+
+  // Get food posts from a specific retailer
+  getRetailerFoodPost(email:string): Observable<FetchedPost> {
+    return this.http.get(`${this.retailerFoodPostsUrl}/${email}`)
       .map((res:Response) => res.json())
       .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
   }
