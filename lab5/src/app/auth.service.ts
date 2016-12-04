@@ -6,8 +6,15 @@ let Auth0Lock = require('auth0-lock').default;
 
 // Lock customization
 var options = {
-  allowedConnections: ['Username-Password-Authentication', 'google', 'twitter', 'facebook'],
-  
+  // Theme of the widget
+  theme: {
+    logo: '../logo.png',
+    primaryColor: '#e00000'
+  },  
+  //Text being displayed on the auth widget
+  languageDictionary: {
+    title: "Cheap Eats"
+  },
   // Sign up fields
   additionalSignUpFields: [{
     name: "retailerName",
