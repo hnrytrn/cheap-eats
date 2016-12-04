@@ -67,6 +67,7 @@ export class FoodDetailComponent implements OnInit {
 
   // Favourite retailer clicked
   favourite() {
-    // add the retailers email to the list of the users favourite retailers
+    // Check if user is already stored in the database if not add the user
+    
   }
 }

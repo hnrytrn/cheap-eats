@@ -11,8 +11,10 @@ import 'rxjs/add/operator/catch' ;
 export class FoodPostService {
 
   constructor(private http: Http) { }
-  private foodPostsUrl = 'http://localhost:8080/api/foodPost'
-  private retailerFoodPostsUrl = 'http://localhost:8080/api/retailerFoodPost'
+  private foodPostsUrl = 'http://localhost:8080/api/foodPost';
+  private retailerFoodPostsUrl = 'http://localhost:8080/api/retailerFoodPost';
+  private userUrl = "http://localhost:8080/api/user";
+  private favouritesUrl = "http://localhost:8080/api/favouriteRetailers"
 
   // Get all food posts
   getFoodPosts(): Observable<FetchedPost[]> {
@@ -63,4 +65,41 @@ export class FoodPostService {
       .map((res:Response) => res.json())
       .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
   }
+
+  //Get users favourite retailers
+  getFavourites(id:string): Observable<String[]> {
+    return this.http.get(`${this.favouritesUrl}/${id}`)
+      .map((res:Response) => res.json())
+      .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+  }
+
+  // Add retailer to users favourites
+  addRetailer(body: Object): Observable<String[]> {
+    let bodyString = JSON.stringify(body);
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers});
+
+    return this.http.put(`${this.favouritesUrl}/${body['_id']}`, body, options)
+      .map((res:Response) => res.json())
+      .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+  }
+
+  // Delete retailer from users favourites
+  deleteRetailer(id:string): Observable<String[]> {
+    return this.http.delete(`${this.favouritesUrl}/${id}`)
+      .map((res:Response) => res.json())
+      .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+  }
+
+  // Add a new user
+  addUser(body: Object): Observable<String[]> {
+    let bodyString = JSON.stringify(body);
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers});
+
+    return this.http.post(`${this.userUrl}/${body['_id']}`, body, options)
+      .map((res:Response) => res.json())
+      .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+  }
+
 }
