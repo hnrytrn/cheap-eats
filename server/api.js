@@ -82,8 +82,17 @@ router.route('/foodPost/:id')
         });
     });
 
-    // List of food posts secified by the retailers names
-    // router.route('/foodPostList')
-        
+    // Food posts posted by a retailer
+    router.route('/retailerFoodPost/:email')
+        // Get food posts from specific retailers
+        .get(function(req, res) {
+            // Find food posts from retailer
+            foodPost.find({email: req.params.email}, function(err, post) {
+                if (err) {
+                return res.send(500, err);
+            }
+            return res.send(post);
+            }); 
+        });
 
 module.exports = router;
