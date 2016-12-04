@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FetchedPost } from '../FetchedPost';
 import { FoodPostService } from '../food-post.service';
 import { Observable } from 'rxjs/Rx';
-import{ ActivatedRoute } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
+import { Auth } from '../auth.service';
 
 @Component({
   selector: 'app-food-detail',
@@ -19,6 +20,7 @@ export class FoodDetailComponent implements OnInit {
   constructor(
     private foodPostService: FoodPostService,
     private router: Router,
+    private auth: Auth,
     route: ActivatedRoute 
   ) { 
     this.foodID = route.snapshot.params['id'];
@@ -52,5 +54,14 @@ export class FoodDetailComponent implements OnInit {
           console.log(err);
         }
       )
+  }
+
+  // Determines if the current user is the creator of this post
+  isCreator(): boolean {
+    let userMetadata = this.auth.userProfile.user_metadata
+    if (userMetadata != null && userMetadata.retailerName == this.post.retailer) {
+      return true;
+    }
+    return false;
   }
 }
