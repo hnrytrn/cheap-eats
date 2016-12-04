@@ -10,6 +10,7 @@ export class FetchedPost {
         public image,
         public retailer,
         public postalCode,
-        public address
+        public address,
+        public email
   ) { }
 }

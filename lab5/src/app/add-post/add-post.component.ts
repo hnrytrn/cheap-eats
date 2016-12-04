@@ -19,11 +19,12 @@ export class AddPostComponent implements OnInit {
   ngOnInit() {
   }
 
-  private model = new Post("", "", "", "", "","","","");
+  private model = new Post("", "", "", "", "","","","","");
   private image; 
   private retailer = this.auth.userProfile.user_metadata.retailerName;
   private postalCode = this.auth.userProfile.user_metadata.postalCode;
   private address = this.auth.userProfile.user_metadata.address;
+  private email = this.auth.userProfile.email;
 
   submitted = false;
   
@@ -32,12 +33,12 @@ export class AddPostComponent implements OnInit {
     let postOperation: Observable<Post[]>;
     // Create a new food post
     postOperation = this.foodPostService.addFoodPost(
-      new Post(this.model.foodName, this.model.price, this.model.expiryDate, this.model.description, this.image, this.retailer, this.postalCode, this.address));
+      new Post(this.model.foodName, this.model.price, this.model.expiryDate, this.model.description, this.image, this.retailer, this.postalCode, this.address, this.email));
 
     // Subscribe to Observable
     postOperation.subscribe( 
       posts => {
-        this.model = new Post("", "", "", "", "","","","");    
+        this.model = new Post("", "", "", "", "","","","","");    
         this.image = null;
       },
       err => {

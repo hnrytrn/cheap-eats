@@ -59,7 +59,7 @@ export class FoodDetailComponent implements OnInit {
   // Determines if the current user is the creator of this post
   isCreator(): boolean {
     let userMetadata = this.auth.userProfile.user_metadata
-    if (userMetadata != null && userMetadata.retailerName == this.post.retailer) {
+    if (userMetadata != null && this.auth.userProfile.email == this.post.email) {
       return true;
     }
     return false;

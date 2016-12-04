@@ -30,6 +30,7 @@ export class EditPostComponent implements OnInit {
   private retailer = this.auth.userProfile.user_metadata.retailerName;
   private postalCode = this.auth.userProfile.user_metadata.postalCode;
   private address = this.auth.userProfile.user_metadata.address;
+  private email = this.auth.userProfile.email;
 
   ngOnInit() {
     this.loadPost();
@@ -54,7 +55,7 @@ export class EditPostComponent implements OnInit {
     let putOperation: Observable<Post[]>;
     // Update the food post
     putOperation = this.foodPostService.updateFoodPost(
-      new FetchedPost(this.post._id, this.post.foodName, this.post.price, this.post.expiryDate, this.post.description, this.image, this.retailer, this.postalCode, this.address)
+      new FetchedPost(this.post._id, this.post.foodName, this.post.price, this.post.expiryDate, this.post.description, this.image, this.retailer, this.postalCode, this.address, this.email)
     );
     putOperation.subscribe(
         posts => {

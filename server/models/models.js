@@ -8,7 +8,8 @@ var foodPostSchema = new mongoose.Schema({
     price: Number,
     retailer: String,
     postalCode: String,
-    address: String
+    address: String,
+    email: String
 });
 
 mongoose.model('FoodPost', foodPostSchema);

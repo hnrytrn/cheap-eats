@@ -16,7 +16,7 @@ router.route('/foodPost')
         newPost.retailer = req.body.retailer;
         newPost.postalCode = req.body.postalCode;
         newPost.address = req.body.address;
-        
+        newPost.email = req.body.email;
 
         newPost.save(function(err, post) {
 			if (err){
@@ -71,6 +71,7 @@ router.route('/foodPost/:id')
             post.retailer = req.body.retailer;
             post.postalCode = req.body.postalCode;
             post.address = req.body.address;
+            post.email = req.body.email;
 
             post.save(function(err, post) {
                 if (err) {
@@ -80,5 +81,9 @@ router.route('/foodPost/:id')
             });
         });
     });
+
+    // List of food posts secified by the retailers names
+    // router.route('/foodPostList')
+        
 
 module.exports = router;
