@@ -3,7 +3,7 @@
     <a routerLink="/" routerLinkActive="active" class="navbar-brand"> Cheap Eats </a>
     <a href="#" (click)="auth.login()" *ngIf="!auth.authenticated()" class="navbar-right navbar-text">Log in</a>
     <a href="#" (click)="auth.logout()" *ngIf="auth.authenticated() && auth.userProfile" class="navbar-right navbar-text">Log out</a>
-    <a routerLink="/addPost" routerLinkActive="active" *ngIf="auth.authenticated() && auth.userProfile" class="navbar-right navbar-text">Add Food Post</a>
+    <a routerLink="/addPost" routerLinkActive="active" *ngIf="auth.authenticated() && auth.userProfile && isRetailer()" class="navbar-right navbar-text">Add Food Post</a>
   </div>
 </nav>
 
