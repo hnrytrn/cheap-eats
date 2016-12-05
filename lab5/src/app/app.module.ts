@@ -12,6 +12,7 @@ import { FoodPostComponent } from './food-post/food-post.component';
 import { AddPostComponent } from './add-post/add-post.component';
 import { FoodDetailComponent } from './food-detail/food-detail.component';
 import { EditPostComponent } from './edit-post/edit-post.component';
+import { FavouritesComponent } from './favourites/favourites.component';
 
 const appRoutes: Routes = [
   { path: '', component: FoodPostComponent },
@@ -26,7 +27,8 @@ const appRoutes: Routes = [
     FoodPostComponent,
     AddPostComponent,
     FoodDetailComponent,
-    EditPostComponent
+    EditPostComponent,
+    FavouritesComponent
   ],
   imports: [
     BrowserModule,

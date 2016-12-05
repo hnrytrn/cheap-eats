@@ -113,6 +113,7 @@ router.route("/favouriteRetailers/:userID")
             if (err) {
                 res.send(err);
             }
+            console.log(customer.favourites);
             customer.favourites.addToSet(req.body.email);
             customer.save(function(err, customer) {
                 if (err) {
@@ -144,12 +145,12 @@ router.route("/favouriteRetailers/:userID")
     });
 
 // User route
-router.route("/user")
+router.route("/user/:id")
     // Adds a new user
     .post(function(req,res) {
         // Save photo
         var newUser = new user();
-        newUser._id = req.body._id;
+        newUser._id = req.params.id;
         newUser.favourites = [];
 
         newUser.save(function(err, customer) {
@@ -158,6 +159,6 @@ router.route("/user")
 			}
 			return res.json(customer);
         });
-    })
+    });
 
 module.exports = router;

@@ -1,13 +1,11 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-10 col-md-offset-1" *ngIf="post"> 
-      <div class="detail-edit" *ngIf="isCreator()">
+    <div class="col-md-10 col-md-offset-1" *ngIf=post>
+      <div class="detail-edit" *ngIf="isCreator()"> 
         <i (click)="edit()" class="fa fa-3x fa-pencil pull-right" aria-hidden="true"></i>
         <i (click)="delete()" class="fa fa-3x fa-trash pull-right" aria-hidden="true"></i>
       </div>
-      <div class="detail-favourite" *ngif"auth.authenticated() && auth.userProfile">
-        <i (click)="favourite()" class="fa fa-3x fa-star-o pull-right" aria-hidden="true"></i>
-      </div>
+      <i (click)="favourite()" *ngIf="auth.authenticated()" class="fa fa-3x fa-star-o pull-right" aria-hidden="true"></i>
       <div>
         <img class="detail-image" [src]="post.image">
       </div>

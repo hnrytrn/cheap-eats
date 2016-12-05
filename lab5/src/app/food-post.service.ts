@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { Post } from './post';
+import { User } from './user';
 import { FetchedPost } from './fetchedPost';
 import { Observable } from 'rxjs/Rx';
 
@@ -66,15 +67,15 @@ export class FoodPostService {
       .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
   }
 
-  //Get users favourite retailers
-  getFavourites(id:string): Observable<String[]> {
+  //Get users data
+  getFavourites(id:string): Observable<User> {
     return this.http.get(`${this.favouritesUrl}/${id}`)
       .map((res:Response) => res.json())
       .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
   }
 
   // Add retailer to users favourites
-  addRetailer(body: Object): Observable<String[]> {
+  addRetailer(body: Object): Observable<User> {
     let bodyString = JSON.stringify(body);
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers});
@@ -85,14 +86,14 @@ export class FoodPostService {
   }
 
   // Delete retailer from users favourites
-  deleteRetailer(id:string): Observable<String[]> {
+  deleteRetailer(id:string): Observable<User> {
     return this.http.delete(`${this.favouritesUrl}/${id}`)
       .map((res:Response) => res.json())
       .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
   }
 
   // Add a new user
-  addUser(body: Object): Observable<String[]> {
+  addUser(body: Object): Observable<User> {
     let bodyString = JSON.stringify(body);
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers});

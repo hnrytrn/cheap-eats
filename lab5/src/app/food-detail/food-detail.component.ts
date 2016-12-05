@@ -5,6 +5,7 @@ import { Observable } from 'rxjs/Rx';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import { Auth } from '../auth.service';
+import { User } from '../user';
 
 @Component({
   selector: 'app-food-detail',
@@ -16,6 +17,8 @@ export class FoodDetailComponent implements OnInit {
 
   private foodID: string;
   post: FetchedPost;
+  user: User;
+  private userID;
 
   constructor(
     private foodPostService: FoodPostService,
@@ -24,6 +27,7 @@ export class FoodDetailComponent implements OnInit {
     route: ActivatedRoute 
   ) { 
     this.foodID = route.snapshot.params['id'];
+    this.userID = this.auth.userProfile.user_id;
   }
 
   ngOnInit() {
@@ -67,7 +71,33 @@ export class FoodDetailComponent implements OnInit {
 
   // Favourite retailer clicked
   favourite() {
-    // Check if user is already stored in the database if not add the user
+    // Check if user is already has favourites stored in the db  
+    let user;
+    this.foodPostService.getFavourites(this.userID)
+      .subscribe(
+        customer => user = customer,
+        err => {
+          console.log(err);
+        } 
+      );
+      console.log(user);
+    if (user == null) {
+      this.foodPostService.addUser({_id: this.userID})
+        .subscribe(
+          customer => {},
+          err => {
+            console.log(err);
+          }
+      )
+    }
     
+    // Add the retailers email to the users favourites
+    this.foodPostService.addRetailer({_id: this.userID, email: this.post.email})
+      .subscribe(
+        customer => {},
+        err => {
+          console.log(err);
+        }
+      )
   }
 }
