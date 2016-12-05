@@ -86,8 +86,8 @@ export class FoodPostService {
   }
 
   // Delete retailer from users favourites
-  deleteRetailer(id:string): Observable<User> {
-    return this.http.delete(`${this.favouritesUrl}/${id}`)
+  deleteRetailer(body: Object): Observable<User> {
+    return this.http.delete(`${this.favouritesUrl}/${body['_id']}`)
       .map((res:Response) => res.json())
       .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
   }
