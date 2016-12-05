@@ -7,17 +7,21 @@
       </div>
       <i (click)="favourite()" *ngIf="auth.authenticated()" class="fa fa-3x fa-star-o pull-right" aria-hidden="true"></i>
       <button class="btn btn-default pull-right" (click)="openCheckout()">Purchase</button>
-      <div>
-        <img class="detail-image well well-sm" [src]="post.image">
+      <div class="row">
+        <div class="col-md-5">
+          <img class="detail-image well well-sm" [src]="post.image">
+        </div>
       </div>
-      <div class="detail-description">
-        <h1> {{post.foodName}} </h1>
-        <h6> Price: ${{post.price}} </h6>
-        <h6> Description: {{post.description}} </h6>
-        <h6> Expiry Date: {{post.expiryDate}} </h6>
-        <h6> Retailer: {{post.retailer}} </h6>
-        <h6> Address: {{post.address}} </h6>
-        <h6> Postal Code: {{post.postalCode}} </h6>
+      <div class="row">
+        <div class="detail-description">
+          <h1> {{post.foodName}} </h1>
+          <h6> Price: ${{post.price}} </h6>
+          <h6> Description: {{post.description}} </h6>
+          <h6> Expiry Date: {{post.expiryDate}} </h6>
+          <h6> Retailer: {{post.retailer}} </h6>
+          <h6> Address: {{post.address}} </h6>
+          <h6> Postal Code: {{post.postalCode}} </h6>
+        </div>
       </div>
     </div>
   </div>
