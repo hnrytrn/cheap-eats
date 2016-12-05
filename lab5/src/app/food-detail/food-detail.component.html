@@ -6,7 +6,7 @@
         <i (click)="delete()" class="fa fa-3x fa-trash pull-right" aria-hidden="true"></i>
       </div>
       <i (click)="favourite()" *ngIf="auth.authenticated()" class="fa fa-3x fa-star-o pull-right" aria-hidden="true"></i>
-      <button class="pull-right" (click)="openCheckout()">Purchase</button>
+      <button class="btn btn-default pull-right" (click)="openCheckout()">Purchase</button>
       <div>
         <img class="detail-image" [src]="post.image">
       </div>

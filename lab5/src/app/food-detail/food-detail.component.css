@@ -2,7 +2,12 @@
     height: 400px;
     width: 400px;
 }
+
 .detail-description {
     margin-top: 50px;
     display: block;
  }
+
+.container {
+    margin-top: 50px;
+}

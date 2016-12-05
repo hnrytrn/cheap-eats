@@ -12,10 +12,10 @@ import 'rxjs/add/operator/catch' ;
 export class FoodPostService {
 
   constructor(private http: Http) { }
-  private foodPostsUrl = 'http://localhost:8080/api/foodPost';
-  private retailerFoodPostsUrl = 'http://localhost:8080/api/retailerFoodPost';
-  private userUrl = "http://localhost:8080/api/user";
-  private favouritesUrl = "http://localhost:8080/api/favouriteRetailers"
+  private foodPostsUrl = '/api/foodPost';
+  private retailerFoodPostsUrl = '/api/retailerFoodPost';
+  private userUrl = "/api/user";
+  private favouritesUrl = "/api/favouriteRetailers"
 
   // Get all food posts
   getFoodPosts(): Observable<FetchedPost[]> {
