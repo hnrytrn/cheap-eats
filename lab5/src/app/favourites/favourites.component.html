@@ -5,8 +5,8 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-md-4" *ngFor="let post of posts" (click)="onSelect(post)"> 
-      <img class="food-post" [src]="post.image">
+    <div class="col-md-3" *ngFor="let post of posts" (click)="onSelect(post)"> 
+      <img class="food-post well well-sm" [src]="post.image">
     </div>
   </div>
 </div>
