@@ -100,4 +100,22 @@ export class FoodDetailComponent implements OnInit {
         }
       )
   }
+
+  // User purchases an item
+    openCheckout() {
+    var handler = (<any>window).StripeCheckout.configure({
+      key: 'pk_test_oXYVZ0IbatsHhufD89CNy7vk',
+      locale: 'auto',
+      token: function (token: any) {
+        
+      }
+    });
+
+    handler.open({
+      name: this.post.foodName,
+      description: this.post.description,
+      amount: this.post.price*100
+    });
+
+  }
 }
