@@ -1,0 +1,9 @@
+.food-post {
+    width: 250px;
+    height: 250px;
+    padding: 10px;
+    margin: 10px;
+    border-style: solid;
+    border-width: 3px;
+    border-radius: 5px;
+}

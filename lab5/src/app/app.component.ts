@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Auth } from  './auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -7,7 +8,10 @@ import { Auth } from  './auth.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  constructor(private auth: Auth) {}
+  constructor(
+    private router: Router,
+    private auth: Auth
+  ) {}
 
   // Check if the user is a retailer
   isRetailer(): boolean {
@@ -16,5 +20,10 @@ export class AppComponent {
       return true;
     }
     return false;
+   }
+
+   // Favourites button is clicked
+   favourites() {
+     this.router.navigate(['favourites', this.auth.userProfile.user_id])
    }
 }

@@ -18,7 +18,8 @@ const appRoutes: Routes = [
   { path: '', component: FoodPostComponent },
   { path: 'addPost', component: AddPostComponent },
   { path: 'foodDetail/:id', component:FoodDetailComponent },
-  { path: 'editPost/:id', component:EditPostComponent }
+  { path: 'editPost/:id', component:EditPostComponent },
+  { path: 'favourites/:userID', component:FavouritesComponent }
 ];
 
 @NgModule({
