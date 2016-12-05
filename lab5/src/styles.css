@@ -30,3 +30,11 @@ h6 {
     letter-spacing: 1px;
 }
 
+footer {
+    padding: 50px 0;
+    background-color: #f8f8f8;
+}
+
+p.copyright {
+    margin: 15px 0 0;
+}

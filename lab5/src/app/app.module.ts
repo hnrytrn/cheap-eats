@@ -13,13 +13,19 @@ import { AddPostComponent } from './add-post/add-post.component';
 import { FoodDetailComponent } from './food-detail/food-detail.component';
 import { EditPostComponent } from './edit-post/edit-post.component';
 import { FavouritesComponent } from './favourites/favourites.component';
+import { PrivacyComponent } from './privacy/privacy.component';
+import { DmcaComponent } from './dmca/dmca.component';
+import { TakedownComponent } from './takedown/takedown.component';
 
 const appRoutes: Routes = [
   { path: '', component: FoodPostComponent },
   { path: 'addPost', component: AddPostComponent },
   { path: 'foodDetail/:id', component:FoodDetailComponent },
   { path: 'editPost/:id', component:EditPostComponent },
-  { path: 'favourites/:userID', component:FavouritesComponent }
+  { path: 'favourites/:userID', component:FavouritesComponent },
+  { path: 'privacy', component:PrivacyComponent },
+  { path: 'dmca', component:DmcaComponent },
+  { path: 'takedown', component:TakedownComponent}
 ];
 
 @NgModule({
@@ -29,7 +35,10 @@ const appRoutes: Routes = [
     AddPostComponent,
     FoodDetailComponent,
     EditPostComponent,
-    FavouritesComponent
+    FavouritesComponent,
+    PrivacyComponent,
+    DmcaComponent,
+    TakedownComponent
   ],
   imports: [
     BrowserModule,
