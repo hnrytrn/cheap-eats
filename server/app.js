@@ -8,7 +8,7 @@ var multer = require('multer');
 var cookieParser = require('cookie-parser'); // for handling cookies
 var bodyParser = require('body-parser'); // for parsing request URL
 var models = require('./models/models.js');
-mongoose.connect('mongodb://localhost/lab5')
+mongoose.connect("mongodb://heroku_jjqkxfh7:nfjqonbfkei7fndp213m1bgtrj@ds119768.mlab.com:19768/heroku_jjqkxfh7");
 
 // set up logger and parsers
 app.use(logger('dev')); // set up logger and parsers
